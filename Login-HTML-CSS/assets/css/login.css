@@ -95,7 +95,7 @@ Regras Locais
     padding-left: 30px;
     padding-top: 3px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 12px;
 }
 .control input {
     position: absolute;
@@ -257,6 +257,9 @@ Breakpoints
     }
     .login h1{
         font-size: 2.8vw;
+    }
+    .control{
+         font-size: 16px;
     }
 }
 
