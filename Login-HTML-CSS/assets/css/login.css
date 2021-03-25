@@ -1,0 +1,264 @@
+:root{
+    --body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+/*Reset*/
+*{
+    box-sizing: border-box;
+    font-size: 100%;
+    font-family: var(--body);
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+a, a:hover{text-decoration: none;}
+li{list-style-type: none;}
+
+/****
+Regras Gerais
+******/
+.bt{
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 6px 15px rgb(36 37 38 / 8%);
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: .98rem;
+    font-weight: 600;
+    padding: 10px 1.5rem;
+    text-align: center;
+    width: 44%;
+}
+
+.wrap,
+.content,
+.content .left,
+.content .right,
+.form_group, 
+.login{
+    display: flex;
+}
+.wrap,
+.content,
+.content .right,
+.login{
+    flex-direction: column;
+}
+.login,
+.content .right,
+.wrap{
+    justify-content: center;
+}
+
+/******
+Regras Locais
+*****/
+/*Links*/
+.recova{
+    display: inline-block;
+    margin-left: 2.7rem;
+}
+/*Buttons*/
+.bt_login{
+    background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);
+    border: none;
+}
+.bt_recover{
+    background-image: linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);
+    margin-left: 10px;
+}
+/*Forms*/
+.form_group{
+    align-items: center;
+    position: relative;
+    flex-direction: row;
+    margin: 14px 0;
+}
+.form_group input{
+    border-color: #1d1c1d17;
+    padding: 12px 8px;
+}
+.login{
+    align-items: center;
+    width: 90%;
+}
+.control {
+    font-family: arial;
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    padding-top: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.control input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+.control_indicator {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background: #e6e6e6;
+    border: 0px solid #000000;
+    border-radius: 0px;
+}
+.control:hover input ~ .control_indicator,
+.control input:focus ~ .control_indicator {
+    background: #cccccc;
+}
+
+.control input:checked ~ .control_indicator {
+    background: #f3295c;
+}
+.control:hover input:not([disabled]):checked ~ .control_indicator,
+.control input:checked:focus ~ .control_indicator {
+    background: #0e6647;
+}
+.control input:disabled ~ .control_indicator {
+    background: #e6e6e6;
+    opacity: 0.6;
+    pointer-events: none;
+}
+.control_indicator:after {
+    box-sizing: unset;
+    content: '';
+    position: absolute;
+    display: none;
+}
+.control input:checked ~ .control_indicator:after {
+    display: block;
+}
+.control-checkbox .control_indicator:after {
+    left: 8px;
+    top: 4px;
+    width: 3px;
+    height: 8px;
+    border: solid #ffffff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+.control-checkbox input:disabled ~ .control_indicator:after {
+    border-color: #7b7b7b;
+}
+.control-checkbox .control_indicator::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4.5rem;
+    height: 4.5rem;
+    margin-left: -1.3rem;
+    margin-top: -1.3rem;
+    background: #f11d52;
+    border-radius: 3rem;
+    opacity: 0.6;
+    z-index: 99999;
+    transform: scale(0);
+}
+@keyframes s-ripple {
+    0% {
+        transform: scale(0);
+    }
+    20% {
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+}
+@keyframes s-ripple-dup {
+   0% {
+       transform: scale(0);
+    }
+   30% {
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+}
+.control-checkbox input + .control_indicator::before {
+    animation: s-ripple 250ms ease-out;
+}
+.control-checkbox input:checked + .control_indicator::before {
+    animation-name: s-ripple-dup;
+}
+/*Sections*/
+.wrap{
+    background-color: #f6f6f6;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+}
+.content{
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 6px 15px rgb(36 37 38 / 8%);
+    
+}
+.content .left{
+    background-image: url("https://wallpapercave.com/wp/wp2708193.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+}
+
+
+
+/*****
+Breakpoints
+*****/
+@media(min-width: 700px){
+    .content{
+        flex-direction: row;
+        margin: 0 auto;
+        min-height: 80vh;
+        width: 70%;
+    }
+    .content .left,
+    .content .right{
+        min-height: 80vh;
+        width: 50%;
+    }
+    .form_group{
+        width: 90%;
+    }
+    .form_group input{
+        width: 90%;
+    }
+    .login h1{
+        font-size: 4vw;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
